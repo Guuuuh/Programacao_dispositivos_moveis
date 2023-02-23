@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'grid2',
     loadChildren: () => import('./grid2/grid2.module').then( m => m.Grid2PageModule)
   },
+  {
+    path: 'form',
+    loadChildren: () => import('./form/form.module').then( m => m.FormPageModule)
+  },
 ];
 
 @NgModule({
