@@ -24,6 +24,37 @@
       Form 1
     </ion-button>
 
+    <ion-button color="primary" routerLink="/ngpage">
+      <ion-icon slot="start" name="at-circle-outline"></ion-icon>
+      Ng Page
+    </ion-button>
+
+    <ion-row>
+      <ion-col>
+        {{ pessoa.idade }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="acrescentaIdade()">
+          <ion-icon name="add"></ion-icon>
+        </ion-button>
+        <ion-button (click)="subtraiIdade()">
+          <ion-icon name="remove"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button color="success" (click)="addAluno('Luiz','asdf', 25, 'Axé')" >
+          <ion-icon name="musical-note"></ion-icon>
+          Adicionar Aluno
+          Quantidade de Alunos {{ listaAlunos.length }}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
   </div>
 </ion-content>
 

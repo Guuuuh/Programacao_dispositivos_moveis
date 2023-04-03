@@ -7,23 +7,50 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  a : number = 1;
-  b : number = 2;
-  c = 0;
 
-  constructor(private alertController: AlertController) {
-    this.c = this.a + this.b;
-    console.log(this.c);
+  public nomeDaVariavel: any;
+  public pessoa = {
+    id: 1,
+    nome: 'Gustavo',
+    sobrenome: 'Tomaz',
+    idade: 22,
+    gostoMusical: 'Rap'
   }
 
-  async presentAlert() {
-    const alert = await this.alertController.create({
-      header: 'Alert',
-      subHeader: 'Important message',
-      message: 'This is an alert!',
-      buttons: ['OK'],
-    });
+  public listaAlunos: any = []
 
-    await alert.present();
+  constructor() {
+    this.nomeDaVariavel = "Objeto em ts";
+    this.pessoa.gostoMusical = "Pagode";
+
+    console.log(this.pessoa);
+  }
+
+  public acrescentaIdade() {
+    this.pessoa.idade += 1;
+  }
+
+  public subtraiIdade() {
+    this.pessoa.idade -= 1;
+  }
+
+  public addAluno(nome: String, sobrenome: String, idade: number, gostoMusical: String) {
+    this.listaAlunos.push(
+      {
+        nome: nome,
+        sobrenome: sobrenome,
+        idade: idade,
+        gostoMusical: gostoMusical
+      }
+    )
+    this.printaListaAlunos();
+  }
+
+  public printaListaAlunos() {
+  this.listaAlunos.forEach((element:any) => {
+    if (element.idade < 25){
+      console.log(element)
+    }
+  });
   }
 }
